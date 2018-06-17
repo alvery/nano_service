@@ -38,10 +38,10 @@ class MessageController extends Controller
 
         $data = $request->input('data');
 
-        foreach ($data as $message) {
-            $messageType = MessageTypeEnum::get($message['type']);
-            $message = $message['message'];
-            $delay = $message['delay'] ?? null;
+        foreach ($data as $item) {
+            $messageType = MessageTypeEnum::get($item['type']);
+            $message = $item['message'];
+            $delay = $item['delay'] ?? null;
 
             $this->queueJob($messageType, $message, $delay);
         }

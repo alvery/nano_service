@@ -65,5 +65,6 @@ class MessageProcessor extends AbstractProcessor
             }
         }
 
+        return $slots[0]->addDay()->diffInSeconds($now);
     }
 }
